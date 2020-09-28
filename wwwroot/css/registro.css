@@ -1,0 +1,81 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+html {
+    font-family: Verdana, Geneva, sans-serif;
+}
+h1 {
+    font-size: 25px;
+}
+h2 {
+    padding: 15px;
+}
+.botones {
+    padding-right: 130px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    margin: 15px 35px;
+    transition-duration: 0.4s;
+}
+.botonface {
+    background-color: rgb(136, 165, 224);
+    color: white;
+    border: 2px solid rgb(136, 165, 224);
+}
+.botonface:hover {
+    background-color: white;
+    color: rgb(136, 165, 224);
+    border: 2px solid rgb(136, 165, 224); 
+}
+.botongog {
+    background-color: rgb(218, 100, 56);
+    color: white;
+    border: 2px solid rgb(218, 100, 56);
+    float: right;
+}
+    .botongog:hover {
+        background-color: white;
+        color: rgb(218, 100, 56);
+        border: 2px solid rgb(218, 100, 56);
+    }
+.botonregistro {
+    background-color: rgb(20, 40, 200);
+    color: white;
+    border: 2px solid rgb(20, 40, 200);
+}
+
+    .botonregistro:hover {
+        background-color: white;
+        color: rgb(20, 40, 200);
+        border: 2px solid rgb(20, 40, 200);
+    }
+#a {
+    width: 45%;
+    box-shadow: rgb(204, 204, 204) 0px 0px 3px 3px;
+    border-radius: 10px;
+    border-style: groove;
+    border-color: #d4d4d4;
+    border-width: 1px;
+}
+#color {
+    color: #b93c2f;
+}
+#face {
+    font-family: Kozuka Gothic Pro;
+    font-size: 40px;
+    padding-right: 50px;
+    font-weight: bold;
+}
+#gog {
+    font-family: sans-serif;
+    font-size: 40px;
+    padding-right: 50px;
+}
+.nombres{
+    font-weight: bold;
+}
+.cajita{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+

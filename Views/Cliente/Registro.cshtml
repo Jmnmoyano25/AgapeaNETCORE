@@ -6,39 +6,134 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@ViewData["Title"] - AgapeaNETCORE</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/registro.css"/>
 </head>
 <body>
-    <form>
-        <div class="container">
-            <!-- Content here -->
-            <h1>Registro</h1>
-            <img src="~/images/Logo.png"/>
-            <div>
-                <span class="textodescrp">Tienes tres opciones para registrarte en Agapea.com. Puedes hacerlo a través de las <span class="titroj">redes sociales Facebook o Google en 4 segundos</span>. También puedes registrarte con nosotros <span class="titroj">en menos de 40 segundos</span>. Tan solo rellena el formulario con tus datos.<br><br> En ambos casos, recibirás un correo electrónico en tu cuenta con un enlace con el que confirmarás tus datos, y estarás disfrutando de nuestros servicios y ventajas. </span>
 
+    <div class="container">
+        <!-- Content here -->
+        <img src="~/images/Logo.png" />
+        <h1>Registro en agapea.com</h1>
+        <div>
+            <span>Tienes tres opciones para registrarte en Agapea.com. Puedes hacerlo a través de las <span id="color">redes sociales Facebook o Google en 4 segundos</span>. También puedes registrarte con nosotros <span id="color">en menos de 40 segundos</span>. Tan solo rellena el formulario con tus datos.<br><br> En ambos casos, recibirás un correo electrónico en tu cuenta con un enlace con el que confirmarás tus datos, y estarás disfrutando de nuestros servicios y ventajas. </span>
+        </div>
+    </div>
+    <br/>
+    <form>
+        <div class="container" id="a">
+            <div class="form-group">
+                <button type="button" class="btn btn-outline-primary btn-lg botones botonface" title="logueate con facebook"><span id="face">f</span><span style="transition-duration: 0.6s;">facebook</span></button>
+                <button type="button" class="btn btn-outline-primary btn-lg botones botongog" title="logueate con google"><span id="gog">g+</span><span style="transition-duration: 0.6s;">google</span></button>
             </div>
+            <div style="color: grey; text-align: center; padding: 20px;">o bien crea una cuenta en Agapea</div>
+            <div class="form-group">
+                <h1>Regístrate con Agapea</h1>
+                <div class="row">
+                    <div class="col">
+                        <label class="nombres">Usuario</label>
+                        <input type="text" class="form-control" id="usuario" placeholder="Escribe aquí tu usuario" title="rellena este campo">
+                    </div>
+                    <div class="col">
+                        <label class="nombres">Correo electrónico</label>
+                        <input type="email" class="form-control" id="email" placeholder="Escribe aquí tu correo" title="rellena este campo">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="nombres">Escribe cuál será tu contraseña</label>
+                        <input type="password" class="form-control" id="pass1" placeholder="Escribe aquí tu contraseña" title="rellena este campo">
+                        <small class="form-text text-muted">Introduce al menos 8 caracteres</small>
+                    </div>
+                    <div class="col">
+                        <label class="nombres">Repite tu contraseña</label>
+                        <input type="password" class="form-control" id="pass2" placeholder="Repite aquí tu contraseña" title="rellena este campo">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <h1>Datos personales</h1>
+                <div class="row">
+                    <div class="col">
+                        <label class="nombres">Mi nombre es</label>
+                        <input type="text" class="form-control" id="nombre" title="rellena este campo">
+                    </div>
+                    <div class="col">
+                        <label class="nombres">Mis apellidos son</label>
+                        <input type="text" class="form-control" id="apellidos" title="rellena este campo">
+                    </div>
+                </div>
+            </div>
+            <small class="form-text text-muted">Agapea S.A. se compromete a garantizar la seguridad de tus datos y a guardarlos en la más estricta confidencialidad.</small>
+            <h1>¿Comó nos conociste?</h1>
+            <small class="form-text text-muted">Queremos saber cómo nos conociste. De todos los sitios donde Agapea está presente, dinos dónde nos has visto.</small>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="radioCorreos" name="correos" class="custom-control-input">
+                <label class="custom-control-label" for="radioCorreos">Google, Yahoo, Bing...</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="librerias" name="librerias" class="custom-control-input">
+                <label class="custom-control-label" for="radioLibrerias">Nuestras librerías</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="radioRedesSociales" name="radioRedesSociales" class="custom-control-input">
+                <label class="custom-control-label" for="radioRedesSociales">Redes sociales</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="radioRaPreTV" name="radioRaPreTV" class="custom-control-input">
+                <label class="custom-control-label" for="radioRaPreTV">Radio, prensa, televión...</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="radioEventos" name="radioEventos" class="custom-control-input">
+                <label class="custom-control-label" for="radioEventos">Eventos Culturales</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="radioAlguien" name="radioAlguien" class="custom-control-input">
+                <label class="custom-control-label" for="radioAlguien">Alguien me lo comentó</label>
+            </div>
+            <span style="font-weight: bold">Publicidad</span>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="radioOtros" name="radioOtros" class="custom-control-input">
+                <label class="custom-control-label" for="radioOtros" style="font-weight: bold">Otros</label>
+                <input type="text" class="form-control" id="radioTextoOtros" placeholder="Escribe aquí cómo nos conoces">
+            </div>
+            <div class="custom-control custom-checkbox cajita">
+                <input type="checkbox" class="custom-control-input" id="deseoInfo">
+                <label class="custom-control-label" for="deseoInfo">Deseo recibir información sobre libros, novedades y eventos de Agapea.com o sus librerías.</label>
+            </div>
+            <div class="custom-control custom-checkbox cajita">
+                <input type="checkbox" class="custom-control-input" id="aceptoCondiciones">
+                <label class="custom-control-label" for="aceptoCondiciones">Acepto la <a>Condiciones de uso</a>, y nuestra <a>política de Cookies</a></label>
+            </div>
+            <div>
+                <span class="cajita">
+                    En cumplimiento de los establecido en la legislación vigente en materia de protección de datos de carácter personal, Agapea Factory S.A. le informa que los datos recogidos a través de este formulario serán tratados con la finalidad de gestión de usuarios de nuestra página web y si lo autoriza mediante la casilla correspondiente, el envío de información sobre libros, novedades y eventos organizados por Agapea o por sus librerías, siendo por tanto la legitimación para el tratamiento de los datos personales la ejecución del presente contrato y su consentimiento para la recepción de información.
+                    Así mismo le informamos que los datos recogidos los datos recogidos no se cederán datos a terceros salvo obligación legal y que podrá ejercer los derechos de acceso, rectificación, cancelación u oposición, así como los derechos adicionales que le asisten a través de la dirección de email librosurgentes@agapea.com, así como a través de los medios detallados en la información adicional sobre nuestra política de privacidad que puede consultar en la dirección web https://www.agapea.com/politica-cookies-rgpd.php
+                </span>
+            </div>
+            <button type="button" class="btn btn-outline-primary btn-lg botones botonregistro cajita">Registrate</button>
         </div>
-        
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <hr />
+        <footer>
+            <p>
+                <br />
+                <img alt="Premio Empresa Responsable con la Infancia 2017" title="Premio Empresa Responsable con la Infancia 2017" style="float:right; width: 3%;" src="~/images/Premio.jpg">
+                <div style="text-align: center">
+                    <a rel="nofollow" id="linkNotaLegal" class="" href="www.google.es">Aviso Legal</a>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a rel="nofollow" id="linkNotaLegal" class="" href="www.google.es">Condiciones de contratación</a>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a rel="nofollow" id="linkNotaLegal" class="" href="www.google.es">Política de Privacidad y Cookies</a>
+                </div>
+            </p>
+        </footer>
     </form>
-   
+
+
 </body>
 </html>
 
