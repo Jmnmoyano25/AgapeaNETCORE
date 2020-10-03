@@ -10,7 +10,10 @@ h2 {
     padding: 15px;
 }
 .botones {
-    padding-right: 130px;
+    width: 85%;
+   /*color: #fff;*/
+    padding: 7px 10px;
+    /*padding-right: 130px;*/
     text-align: center;
     display: inline-block;
     font-size: 20px;
@@ -18,6 +21,7 @@ h2 {
     transition-duration: 0.4s;
 }
 .botonface {
+    float:left;
     background-color: rgb(136, 165, 224);
     color: white;
     border: 2px solid rgb(136, 165, 224);
@@ -28,6 +32,7 @@ h2 {
     border: 2px solid rgb(136, 165, 224); 
 }
 .botongog {
+    float: right;
     background-color: rgb(218, 100, 56);
     color: white;
     border: 2px solid rgb(218, 100, 56);
@@ -50,7 +55,8 @@ h2 {
         border: 2px solid rgb(20, 40, 200);
     }
 #a {
-    width: 45%;
+    position: relative;
+    width: 100%;
     box-shadow: rgb(204, 204, 204) 0px 0px 3px 3px;
     border-radius: 10px;
     border-style: groove;
