@@ -1,6 +1,7 @@
-﻿
+﻿@model AgapeaNETCORE.Models.Cliente
 @{
     Layout = null;
+    //nos creamos una variable para controlar la posicion de la lista en la que se encuentra el contador de direcciones
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -12,10 +13,10 @@
     <link rel="stylesheet" href="~/css/site.css" />-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/registro.css" />
-    <!--<script src="~/js/JavaScript.js"></script>-->
+    <script src="~/js/JavaScript.js"></script>
     
 </head>
-<body>
+<body onload="empezar();">
     <div class="container">
         <!-- Content here -->
         <img src="~/images/Logo.png" />
@@ -25,11 +26,13 @@
         </div>
     </div>
     <br />
-    <form>
+    <form method="POST" asp-controller="Cliente" asp-action="Registro">
         <div class="container" id="a">
-            <div class="form-group divBotones">
-                <button type="button" class="btn btn-outline-primary btn-lg botones botonface" title="logueate con facebook"><span id="face">f</span><span style="transition-duration: 0.6s;">facebook</span></button>
-                <button type="button" class="btn btn-outline-primary btn-lg botones botongog" title="logueate con google"><span id="gog">g+</span><span style="transition-duration: 0.6s;">google</span></button>
+            <div class="form-group divBotones col">
+                <div class="row">
+                    <button type="button" class="btn btn-primary btn-lg botones botonface" title="logueate con facebook"><span id="face">f</span><span style="transition-duration: 0.6s;">facebook</span></button>
+                </div>
+                <button type="button" class="btn btn-secondary btn-lg botones botongog" title="logueate con google"><span id="gog">g+</span><span style="transition-duration: 0.6s;">google</span></button>
             </div>
             <div class="oBien">o bien crea una cuenta en Agapea</div>
             <div class="form-group">
@@ -37,17 +40,17 @@
                 <div class="row">
                     <div class="col">
                         <label class="nombres">Usuario</label>
-                        <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Escribe aquí tu usuario" title="rellena este campo" onchange="">
+                        <input type="text" asp-for="@Model.credeUsuario.login" class="form-control" name="usuario" id="usuario" placeholder="Escribe aquí tu usuario" title="rellena este campo" onchange="">
                     </div>
                     <div class="col">
                         <label class="nombres">Correo electrónico</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Escribe aquí tu correo" title="rellena este campo">
+                        <input type="email" asp-for="@Model.credeUsuario.Email" class="form-control" name="email" id="email" placeholder="Escribe aquí tu correo" title="rellena este campo">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <label class="nombres">Escribe cuál será tu contraseña</label>
-                        <input type="password" class="form-control" name="pass1" id="pass1" placeholder="Escribe aquí tu contraseña" title="rellena este campo">
+                        <input type="password" asp-for="@Model.credeUsuario.password"class="form-control" name="pass1" id="pass1" placeholder="Escribe aquí tu contraseña" title="rellena este campo">
                         <small class="form-text text-muted">Introduce al menos 8 caracteres</small>
                     </div>
                     <div class="col">
@@ -61,7 +64,7 @@
                 <div class="row">
                     <div class="col">
                         <label class="nombres">Mi nombre es</label>
-                        <input type="text" class="form-control" name="nombre" id="nombre" title="rellena este campo">
+                        <input type="text" asp-for="@Model.Nombre"class="form-control" name="nombre" id="nombre" title="rellena este campo">
                     </div>
                     <div class="col">
                         <label class="nombres">Mis apellidos son</label>
@@ -116,7 +119,7 @@
                     Así mismo le informamos que los datos recogidos los datos recogidos no se cederán datos a terceros salvo obligación legal y que podrá ejercer los derechos de acceso, rectificación, cancelación u oposición, así como los derechos adicionales que le asisten a través de la dirección de email librosurgentes@agapea.com, así como a través de los medios detallados en la información adicional sobre nuestra política de privacidad que puede consultar en la dirección web https://www.agapea.com/politica-cookies-rgpd.php
                 </span>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-lg botones botonregistro cajita">Registrate</button>
+            <button type="button" name="botonRegistrar" class="btn btn-outline-primary btn-lg botones botonregistro cajita">Registrate</button>
         </div>
         <hr />
         <footer>
@@ -133,66 +136,72 @@
             </p>
         </footer>
     </form>
-    <!-- <script>
-     function CajasTexto(caja){
-     this.id=caja.id || "";
-     this.valor=caja.value || "";
-     this.validado=__validar(caja);
+    <script>
 
-     function __validar(cajavalida){
-     var _patron=new RegExp();
-     switch (cajavalida.id){
-     case "email":
-      _patron = /^.*\.(es|com|gob)$/;
-     break;
-     case "pass1" || "pass2":
-     _patron=/^[a-zA-z0-9]{6,20}$/;
-     break;
-     default:
-     _patron=/^[a-zA-Z0-9 ]{2,25}$/;
-     break;
+        function CajasTexto(caja) {
+            this.id = caja.id || "";
+            this.valor = caja.value || "";
+            this.validado = __validar(caja);
 
-     }
-     return _patron.test(cajaValida.value);
-     }
-     }
+            function __validar(cajaValida) {
+                var _patron = new RegExp();
+                switch (cajaValida.id) {
+                    case "email":
+                        _patron = /^.*\.(es|com|gob)$/;
+                        break;
+                    case "pass1" || "pass2":
+                        _patron = /^[a-zA-z0-9]{6,20}$/;
+                        break;
+                    default:
+                        _patron = /^[a-zA-Z0-9 ]{2,25}$/;
+                        break;
 
-     var cajas = []; //<---array para almacenar objetos del prototipo CajaTexto
-                                 Array.from(document.getElementsByTagName("input"))
-                                 .filter((el)=>
-         el.type=="text" || (el.type=="password") && el.name != "radioTextoOtros")
-         .forEach((el)=> {//construirme por cada caja un objeto del prototipo CajasTexto
+                }
+                return _patron.test(cajaValida.value);
+            }
+        }
 
-         cajas.push(new CajaTexto(el));
-         })
+        var cajas = []; //<---array para almacenar objetos del prototipo CajaTexto
+        Array.from(document.getElementsByTagName("input"))
+            .filter((el) =>
+                el.type == "text" || (el.type == "password") && el.name != "radioTextoOtros")
+            .forEach((el) => {//construirme por cada caja un objeto del prototipo CajasTexto
 
-
-         //------------------------------------
-         // me recorro el array de cajas viendo si todas tienen su propiedad .validado=true, si es así habilito boton REGISTRAR sino lo deshablitio....
-         //--------------------------------------
-
-         var _botonRegistrar=document.getElementsByName("botonregistra")[0];
+                cajas.push(new CajasTexto(el));
+            })
 
 
-         var _formvalidado=true
-         cajas.forEach((cajita)=>{
-         if(cajita.validado == false) {
-         _formvalidado=false;
-         }
-         if (_formvalidado==false) {
-         botonRegistrar.setAttribute("visibility","hidden");
-         } else {
-         botonRegistrar.setAttribute("visibility","visible");
-         } })
+        //------------------------------------
+        // me recorro el array de cajas viendo si todas tienen su propiedad .validado=true, si es así habilito boton REGISTRAR sino lo deshablitio....
+        //--------------------------------------
+
+        var _botonRegistrar = document.getElementsByName("botonRegistrar")[0];
 
 
-         var user=document.getElementsByName("usuario")[0];
-         user.addEventListener("blur", function(evt){
-         if(evt.target.value==""){
-         evt.target.setAttribute("style", "border-color:red")
-         }
-         })
-     </script>-->
+        var _formvalidado = true
+        cajas.forEach((cajita) => {
+            if (cajita.validado == false) {
+                _formvalidado = false;
+            }
+            if (_formvalidado == false) {
+                _botonRegistrar.setAttribute("visibility", "hidden");
+            } else {
+                _botonRegistrar.setAttribute("visibility", "visible");
+            }
+        })
+
+
+        var user = document.getElementsByName("usuario")[0];
+        user.addEventListener("blur", function (evt) {
+            if (evt.target.value == "") {
+                evt.target.setAttribute("style", "border-color:red")
+            }
+
+     
+     </script>
+
+
+
 </body>
 </html>
 

@@ -1,12 +1,15 @@
-﻿
-var user = document.getElementsByName("usuario")[0]
-user.addEventListener("blur", function (evt) {
-    if (evt.target.value == "") {
-        evt.target.setAttribute("style", "border-color:red")
-    } else {
-        evt.target.setAttribute("style", "border-color:green")
-    }
-})
+﻿window.onload{
+    var user = document.getElementsByName("usuario")[0]
+    user.addEventListener("blur", function (evt) {
+        if (evt.target.value == "") {
+            evt.target.setAttribute("style", "border-color:red")
+        } else {
+            evt.target.setAttribute("style", "border-color:green")
+        }
+    })
+}
+
+
 
 
 
