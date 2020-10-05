@@ -27,51 +27,80 @@
     </div>
     <br />
     <form method="POST" asp-controller="Cliente" asp-action="Registro">
-        <div class="container" id="a">
-            <div class="form-group divBotones col">
-                <div class="row">
-                    <button type="button" class="btn btn-primary btn-lg botones botonface" title="logueate con facebook"><span id="face">f</span><span style="transition-duration: 0.6s;">facebook</span></button>
+        <div class="container contenedorPrincipal">
+            <div class="row">
+                <div class="col">
+                    <h2>Registrate con ...</h2>
                 </div>
-                <button type="button" class="btn btn-secondary btn-lg botones botongog" title="logueate con google"><span id="gog">g+</span><span style="transition-duration: 0.6s;">google</span></button>
             </div>
-            <div class="oBien">o bien crea una cuenta en Agapea</div>
-            <div class="form-group">
-                <h1>Regístrate con Agapea</h1>
-                <div class="row">
-                    <div class="col">
+            <div class="row align-items-center">
+                <div class="col-6 col-sm-12 col-md-6 text-center">
+                    <button type="button" class="btn btn-primary botonF" title="logueate con facebook"><i id="face" class="fa fa-facebook-f">f</i><span style="transition-duration: 0.6s;">facebook</span></button>
+                </div>
+                <div class="col-6 col-sm-12 col-md-6 text-center">
+                    <button type="button" class="btn btn-primary botonG" title="logueate con google"><i id="gog" class="fa fa-google-plus">g+</i><span style="transition-duration: 0.6s;">google</span></button>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col oBien">o bien crea una cuenta en Agapea</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h1>Regístrate con Agapea</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
                         <label class="nombres">Usuario</label>
                         <input type="text" asp-for="@Model.credeUsuario.login" class="form-control" name="usuario" id="usuario" placeholder="Escribe aquí tu usuario" title="rellena este campo" onchange="">
                     </div>
-                    <div class="col">
+                </div>
+                <div class="col">
+                    <div class="form-group">
                         <label class="nombres">Correo electrónico</label>
                         <input type="email" asp-for="@Model.credeUsuario.Email" class="form-control" name="email" id="email" placeholder="Escribe aquí tu correo" title="rellena este campo">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
                         <label class="nombres">Escribe cuál será tu contraseña</label>
-                        <input type="password" asp-for="@Model.credeUsuario.password"class="form-control" name="pass1" id="pass1" placeholder="Escribe aquí tu contraseña" title="rellena este campo">
+                        <input type="password" asp-for="@Model.credeUsuario.password" class="form-control" name="pass1" id="pass1" placeholder="Escribe aquí tu contraseña" title="rellena este campo">
                         <small class="form-text text-muted">Introduce al menos 8 caracteres</small>
                     </div>
-                    <div class="col">
+                </div>
+                <div class="col">
+                    <div class="form-group">
                         <label class="nombres">Repite tu contraseña</label>
                         <input type="password" class="form-control" name="pass2" id="pass2" placeholder="Repite aquí tu contraseña" title="rellena este campo">
+
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <h1>Datos personales</h1>
-                <div class="row">
-                    <div class="col">
+
+
+            <div class="row">
+                <div class="col">
+                    <h1>Datos Personales</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
                         <label class="nombres">Mi nombre es</label>
-                        <input type="text" asp-for="@Model.Nombre"class="form-control" name="nombre" id="nombre" title="rellena este campo">
+                        <input type="text" asp-for="@Model.Nombre" class="form-control" name="nombre" id="nombre" title="rellena este campo">
                     </div>
-                    <div class="col">
+                </div>
+                <div class="col">
+                    <div class="form-group">
                         <label class="nombres">Mis apellidos son</label>
                         <input type="text" class="form-control" name="apellidos" id="apellidos" title="rellena este campo">
                     </div>
                 </div>
             </div>
+
             <small class="form-text text-muted">Agapea S.A. se compromete a garantizar la seguridad de tus datos y a guardarlos en la más estricta confidencialidad.</small>
             <h1>¿Comó nos conociste?</h1>
             <small class="form-text text-muted">Queremos saber cómo nos conociste. De todos los sitios donde Agapea está presente, dinos dónde nos has visto.</small>
@@ -136,74 +165,74 @@
             </p>
         </footer>
     </form>
-    <script>
+        <script>
 
-        function CajasTexto(caja) {
-            this.id = caja.id || "";
-            this.valor = caja.value || "";
-            this.validado = __validar(caja);
+            function CajasTexto(caja) {
+                this.id = caja.id || "";
+                this.valor = caja.value || "";
+                this.validado = __validar(caja);
 
-            function __validar(cajaValida) {
-                var _patron = new RegExp();
-                switch (cajaValida.id) {
-                    case "email":
-                        _patron = /^.*\.(es|com|gob)$/;
-                        break;
-                    case "pass1" || "pass2":
-                        _patron = /^[a-zA-z0-9]{6,20}$/;
-                        break;
-                    default:
-                        _patron = /^[a-zA-Z0-9 ]{2,25}$/;
-                        break;
+                function __validar(cajaValida) {
+                    var _patron = new RegExp();
+                    switch (cajaValida.id) {
+                        case "email":
+                            _patron = /^.*\.(es|com|gob)$/;
+                            break;
+                        case "pass1" || "pass2":
+                            _patron = /^[a-zA-z0-9]{6,20}$/;
+                            break;
+                        default:
+                            _patron = /^[a-zA-Z0-9 ]{2,25}$/;
+                            break;
 
+                    }
+                    return _patron.test(cajaValida.value);
                 }
-                return _patron.test(cajaValida.value);
             }
-        }
 
-        var cajas = []; //<---array para almacenar objetos del prototipo CajaTexto
-        Array.from(document.getElementsByTagName("input"))
-            .filter((el) =>
-                el.type == "text" || (el.type == "password") && el.name != "radioTextoOtros")
-            .forEach((el) => {//construirme por cada caja un objeto del prototipo CajasTexto
+            var cajas = []; //<---array para almacenar objetos del prototipo CajaTexto
+            Array.from(document.getElementsByTagName("input"))
+                .filter((el) =>
+                    el.type == "text" || (el.type == "password") && el.name != "radioTextoOtros")
+                .forEach((el) => {//construirme por cada caja un objeto del prototipo CajasTexto
 
-                cajas.push(new CajasTexto(el));
+                    cajas.push(new CajasTexto(el));
+                })
+
+
+            //------------------------------------
+            // me recorro el array de cajas viendo si todas tienen su propiedad .validado=true, si es así habilito boton REGISTRAR sino lo deshablitio....
+            //--------------------------------------
+
+            var _botonRegistrar = document.getElementsByName("botonRegistrar")[0];
+
+
+            var _formvalidado = true
+            cajas.forEach((cajita) => {
+                if (cajita.validado == false) {
+                    _formvalidado = false;
+                }
+                if (_formvalidado == false) {
+                    _botonRegistrar.setAttribute("visibility", "hidden");
+                } else {
+                    _botonRegistrar.setAttribute("visibility", "visible");
+                }
             })
 
 
-        //------------------------------------
-        // me recorro el array de cajas viendo si todas tienen su propiedad .validado=true, si es así habilito boton REGISTRAR sino lo deshablitio....
-        //--------------------------------------
-
-        var _botonRegistrar = document.getElementsByName("botonRegistrar")[0];
-
-
-        var _formvalidado = true
-        cajas.forEach((cajita) => {
-            if (cajita.validado == false) {
-                _formvalidado = false;
-            }
-            if (_formvalidado == false) {
-                _botonRegistrar.setAttribute("visibility", "hidden");
-            } else {
-                _botonRegistrar.setAttribute("visibility", "visible");
-            }
-        })
+            var user = document.getElementsByName("usuario")[0];
+            user.addEventListener("blur", function (evt) {
+                if (evt.target.value == "") {
+                    evt.target.setAttribute("style", "border-color:red")
+                }
 
 
-        var user = document.getElementsByName("usuario")[0];
-        user.addEventListener("blur", function (evt) {
-            if (evt.target.value == "") {
-                evt.target.setAttribute("style", "border-color:red")
-            }
-
-     
-     </script>
+         </script>
 
 
 
-</body>
-</html>
+    </body>
+    </html>
 
 
 

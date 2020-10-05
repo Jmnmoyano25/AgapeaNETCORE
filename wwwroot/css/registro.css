@@ -8,49 +8,52 @@ h1 {
 }
 h2 {
     padding: 15px;
-}
+}/*
 .divBotones {
     width: 100%;
     padding: 25px 10px 10px;
     display: inline-block;
     margin: auto;
     height: 100%;
-}
+}*/
 .oBien {
     color: grey;
     text-align: center;
     padding: 30px;
-}
+}/*
 .botones {
     width: 40%;
-   /*color: #fff;*/
+    color: #fff;
     padding: 7px 10px;
-    /*padding-right: 130px;*/
+    padding-right: 130px;
     text-align: center;
     display: inline-block;
     font-size: 20px;
     margin: 15px 35px;
     transition-duration: 0.4s;
-}
-.botonface {
-    float:left;
+}*/
+.botonF {
+    width: 80%;
+    padding: 10px;
+    margin: 15px;
     background-color: rgb(136, 165, 224);
     color: white;
     border: 2px solid rgb(136, 165, 224);
 }
-.botonface:hover {
+.botonF:hover {
     background-color: white;
     color: rgb(136, 165, 224);
     border: 2px solid rgb(136, 165, 224); 
 }
-.botongog {
-    float: right;
+.botonG {
+    width: 80%;
+    padding: 10px;
+    margin: 15px;
     background-color: rgb(218, 100, 56);
     color: white;
     border: 2px solid rgb(218, 100, 56);
-    float: right;
 }
-    .botongog:hover {
+    .botonG:hover {
         background-color: white;
         color: rgb(218, 100, 56);
         border: 2px solid rgb(218, 100, 56);
@@ -66,7 +69,7 @@ h2 {
         color: rgb(20, 40, 200);
         border: 2px solid rgb(20, 40, 200);
     }
-#a {
+.contenedorPrincipal {
     position: relative;
     width: 100%;
     box-shadow: rgb(204, 204, 204) 0px 0px 3px 3px;
@@ -79,13 +82,11 @@ h2 {
     color: #b93c2f;
 }
 #face {
-    font-family: Kozuka Gothic Pro;
     font-size: 40px;
     padding-right: 50px;
     font-weight: bold;
 }
 #gog {
-    font-family: sans-serif;
     font-size: 40px;
     padding-right: 50px;
 }

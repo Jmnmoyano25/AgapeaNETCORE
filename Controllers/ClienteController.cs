@@ -15,7 +15,7 @@ namespace AgapeaNETCORE.Controllers
         #endregion
         #region  "......METODOS DE CLASE..........."
 
-       
+
 
         #region  "1.......METODOS QUE DEVUELVEN VISTAS (PUBLICOS)..........."
         public IActionResult Login()
@@ -34,12 +34,14 @@ namespace AgapeaNETCORE.Controllers
 
             */
             return View();
+
         }
-        [HttpPost]
+        //[HttpPost]
         #endregion
         #region  "2.......METODOS PRIVADOS..........."
 
         #endregion
         #endregion
     }
+    
 }
