@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/registro.css" />
     <!--<script src="~/js/JavaScript.js"></script>-->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pselect.js@4.0.1/dist/pselect.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pselect.js@4.0.1/dist/pselect.min.js"></script>
 
 </head>
 <body onload="empezar();">
@@ -117,7 +117,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label class="nombres">Dirección</label>
-                        <input type="text" class="form-control" name="direccion" id="direccion" title="rellena este campo" placeholder="Escribe aquí tu direccion (c/, nº, piso, puerta)">
+                        <input type="text" class="form-control" name="direccion" id="direccion" title="rellena este campo" placeholder="Escribe aquí (c/, nº, piso, puerta)">
                     </div>
                 </div>
                 <div class="col">
@@ -198,7 +198,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <button type="button" name="botonRegistrar" class="btn btn-outline-primary btn-lg botones botonregistro cajita">Registrate</button>
+                    <input type="submit" name="botonRegistrar" class="btn btn-outline-primary btn-lg botones botonregistro cajita" >Registrate
                 </div>
             </div>
         </div>
@@ -224,6 +224,7 @@
             var prov = document.getElementById('ps-prov');
             var mun = document.getElementById('ps-mun');
             new Pselect().create(prov, mun);
+
 
             /*
             function CajasTexto(caja) {
