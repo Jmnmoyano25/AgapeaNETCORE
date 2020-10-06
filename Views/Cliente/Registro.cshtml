@@ -2,6 +2,10 @@
 @{
     Layout = null;
     //nos creamos una variable para controlar la posicion de la lista en la que se encuentra el contador de direcciones
+    //añado un nuevo objeto direccion  a la lista de direcciones q es el q se va a rellenar
+    //al poner:  Model.MiDirecciones[_numeroDirecciones - 1]
+    Model.Misdirecciones.Add(new Direcciones());
+    int _numeroDirecciones = Model.Misdirecciones.Count();
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +18,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/registro.css" />
     <!--<script src="~/js/JavaScript.js"></script>-->
-    <script src="https://cdn.jsdelivr.net/npm/pselect.js@4.0.1/dist/pselect.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pselect.js@4.0.1/dist/pselect.min.js"></script><!--para las provincias y municipios-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </head>
 <body onload="empezar();">
@@ -27,7 +34,7 @@
         </div>
     </div>
     <br />
-    <form method="GET" asp-controller="Cliente" asp-action="Registro">
+    <form method="POST" asp-controller="Cliente" asp-action="Registro">
         <div class="container contenedorPrincipal">
             <div class="row">
                 <div class="col">
@@ -50,97 +57,113 @@
                     <h1>Regístrate con Agapea</h1>
                 </div>
             </div>
-            <div class="row">
+            <div class="form-row">
                 <div class="col">
                     <div class="form-group">
                         <label class="nombres">Usuario</label>
-                        <input type="text" asp-for="@Model.credeUsuario.login" class="form-control" name="usuario" id="usuario" placeholder="Escribe aquí tu usuario" title="rellena este campo" onchange="">
+                        <input type="text" asp-for="@Model.credeUsuario.login" class="form-control" id="usuario" placeholder="Escribe aquí tu usuario" title="rellena este campo" onchange="">
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label class="nombres">Correo electrónico</label>
-                        <input type="email" asp-for="@Model.credeUsuario.Email" class="form-control" name="email" id="email" placeholder="Escribe aquí tu correo" title="rellena este campo">
+                        <input type="email" asp-for="@Model.credeUsuario.Email" class="form-control" id="email" placeholder="Escribe aquí tu correo" title="rellena este campo">
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="form-row">
                 <div class="col">
                     <div class="form-group">
                         <label class="nombres">Escribe cuál será tu contraseña</label>
-                        <input type="password" asp-for="@Model.credeUsuario.password" class="form-control" name="pass1" id="pass1" placeholder="Escribe aquí tu contraseña" title="rellena este campo">
+                        <input type="password" asp-for="@Model.credeUsuario.password" class="form-control" id="pass1" placeholder="Escribe aquí tu contraseña" title="rellena este campo">
                         <small class="form-text text-muted">Introduce al menos 8 caracteres</small>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label class="nombres">Repite tu contraseña</label>
-                        <input type="password" class="form-control" name="pass2" id="pass2" placeholder="Repite aquí tu contraseña" title="rellena este campo">
+                        <input type="password" class="form-control" id="pass2" placeholder="Repite aquí tu contraseña" title="rellena este campo">
 
                     </div>
                 </div>
             </div>
 
 
-            <div class="row">
+            <div class="form-row">
                 <div class="col">
                     <h1>Datos Personales</h1>
                 </div>
             </div>
-            <div class="row">
+            <div class="form-row">
                 <div class="col">
                     <div class="form-group">
                         <label class="nombres">Mi nombre es</label>
-                        <input type="text" asp-for="@Model.Nombre" class="form-control" name="nombre" id="nombre" title="rellena este campo">
+                        <input type="text" asp-for="@Model.Nombre" class="form-control" id="nombre" title="rellena este campo">
+                        <span asp-validation-for="@Model.Nombre" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label class="nombres">Mis apellidos son</label>
-                        <input type="text" class="form-control" name="apellidos" id="apellidos" title="rellena este campo">
+                        <input type="text" asp-for="@Model.Apellidos" class="form-control" id="apellidos" title="rellena este campo">
+                        <span asp-validation-for="@Model.Apellidos" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="nombres">Número de NIF</label>
+                        <input type="text" asp-for="@Model.nif" class="form-control" id="nif" title="rellena este campo" placeholder="Escribe aquí tu NIF con la letra">
+                        <span asp-validation-for="@Model.nif" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
-                        <label class="nombres">Número de NIF</label>
-                        <input type="text" class="form-control" name="nif" id="nif" title="rellena este campo"placeholder="Escribe aquí tu NIF con la letra">
+                        <label class="nombres">Teléfono de contacto</label>
+                        <input type="text" asp-for="@Model.tlfnContacto" class="form-control" id="telContacto" title="rellena este campo" placeholder="Escribe aquí tu teléfono">
                     </div>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="form-row">
                 <div class="col">
                     <h1>Dirección</h1>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
+            <div class="form-row">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label class="nombres">Dirección</label>
-                        <input type="text" class="form-control" name="direccion" id="direccion" title="rellena este campo" placeholder="Escribe aquí (c/, nº, piso, puerta)">
+                        <label for="inputAdress" class="nombres">Dirección</label>
+                        <input type="text" asp-for="@Model.Misdirecciones[_numeroDirecciones - 1].calle" class="form-control" id="direccion" title="rellena este campo" placeholder="Escribe aquí (c/, nº, piso, puerta)">
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-md-3">
                     <div class="form-group">
                         <label class="nombres">Selecciona provincia</label><br />
-                        <select id="ps-prov"></select>
+                        <select id="ps-prov" asp-for="@Model.Misdirecciones[_numeroDirecciones-1].provincia">
+                            <option value="0" selected>Elige una provincia</option>
+                        </select>
+
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-md-3">
                     <div class="form-group">
                         <label class="nombres">Selecciona municipio</label><br />
-                        <select id="ps-mun"></select>
+                        <select id="ps-mun" asp-for="@Model.Misdirecciones[_numeroDirecciones-1].municipio">
+                            <option value="0" disabled>Elige un municipio</option>
+                        </select>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-md-2">
                     <div class="form-group">
                         <label class="nombres">CP</label><br />
-                        <input type="text" class="form-control" name="CP" id="CP" title="rellena este campo" placeholder="Escribe aquí tu Codigo Postal">
+                        <input type="text" asp-for="@Model.Misdirecciones[_numeroDirecciones-1].cp" class="form-control" id="CP" title="rellena este campo" placeholder="Escribe aquí tu Codigo Postal">
                     </div>
                 </div>
             </div>
 
-            <div class="row ">
+            <div class="form-row ">
                 <div class="col"><small class="form-text text-muted">Agapea S.A. se compromete a garantizar la seguridad de tus datos y a guardarlos en la más estricta confidencialidad.</small></div>
             </div>
             <div class="row">
@@ -148,7 +171,7 @@
                     <h1>¿Comó nos conociste?</h1>
                 </div>
             </div>
-            <div class="row ">
+            <div class="form-row ">
                 <div class="col"><small class="form-text text-muted">Queremos saber cómo nos conociste. De todos los sitios donde Agapea está presente, dinos dónde nos has visto.</small></div>
             </div>
 
@@ -196,34 +219,107 @@
                     Así mismo le informamos que los datos recogidos los datos recogidos no se cederán datos a terceros salvo obligación legal y que podrá ejercer los derechos de acceso, rectificación, cancelación u oposición, así como los derechos adicionales que le asisten a través de la dirección de email librosurgentes@agapea.com, así como a través de los medios detallados en la información adicional sobre nuestra política de privacidad que puede consultar en la dirección web https://www.agapea.com/politica-cookies-rgpd.php
                 </span>
             </div>
-            <div class="row">
+            <div class="form-row">
                 <div class="col">
-                    <input type="submit" name="botonRegistrar" class="btn btn-outline-primary btn-lg botones botonregistro cajita" >Registrate
+                    <button type="submit" name="botonRegistrar" class="btn btn-outline-primary btn-lg botones botonregistro cajita">Registrate</button>
                 </div>
             </div>
         </div>
     </form>
-        <hr />
-        <footer>
-            <p>
-                <br />
-                <img alt="Premio Empresa Responsable con la Infancia 2017" title="Premio Empresa Responsable con la Infancia 2017" style="float:right; width: 3%;" src="~/images/Premio.jpg">
-                <div style="text-align: center">
-                    <a rel="nofollow" id="linkNotaLegal" class="" href="www.google.es">Aviso Legal</a>
-                    &nbsp;&nbsp;|&nbsp;&nbsp;
-                    <a rel="nofollow" id="linkNotaLegal" class="" href="www.google.es">Condiciones de contratación</a>
-                    &nbsp;&nbsp;|&nbsp;&nbsp;
-                    <a rel="nofollow" id="linkNotaLegal" class="" href="www.google.es">Política de Privacidad y Cookies</a>
-                </div>
-            </p>
-        </footer>
+    <hr />
+    <footer>
+        <p>
+            <br />
+            <img alt="Premio Empresa Responsable con la Infancia 2017" title="Premio Empresa Responsable con la Infancia 2017" style="float:right; width: 3%;" src="~/images/Premio.jpg">
+            <div style="text-align: center">
+                <a rel="nofollow" id="linkNotaLegal" class="" href="www.google.es">Aviso Legal</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a rel="nofollow" id="linkNotaLegal" class="" href="www.google.es">Condiciones de contratación</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a rel="nofollow" id="linkNotaLegal" class="" href="www.google.es">Política de Privacidad y Cookies</a>
+            </div>
+        </p>
+    </footer>
 
-        <script>
-            // Crear el selector pasandole los elementos del dom.
+    <script>
+        // Crear el selector pasandole los elementos del dom.
 
-            var prov = document.getElementById('ps-prov');
-            var mun = document.getElementById('ps-mun');
-            new Pselect().create(prov, mun);
+        var prov = document.getElementById('ps-prov');
+        var mun = document.getElementById('ps-mun');
+        new Pselect().create(prov, mun);
+
+
+            var caja = document.getElementById("usuario");
+                    caja.addEventListener("blur", function (ev) {
+                console.log("el contenido es.." + ev.target.value);
+                        console.log(ev.target + "hola");
+                        if (ev.target.value == "") {
+                ev.target.setAttribute("style", "border-color:red");
+                            ev.preventDefault();
+                        } else {
+                caja.setAttribute("style", "border-color:green");
+                        }
+                    });
+
+    </script>
+    <!--
+    <script>
+        //cuando se produzca evento "change" del dropdown provincia, habilito dropdown
+        //municipios y hago peticion ajax al servicio REST q tengo en node para recuperar
+        //municipios...una vez recibidos cargo el dropdown de municipios
+
+        //------------------------------------------------------
+        function petAjax(codPro){
+            var _pet=new XMLHttpRequest();
+            _pet.open('GET','https://localhost:44319/api/MuncipiosREST/' + codPro);
+            _pet.addEventListener("readystatechange",(evt)=>{
+                    if(_pet.status==200 && _pet.readyState==4){
+                            var _municipios=JSON.parse(_pet.responseText); //array de objetos: { CodPro:xx, CodMun:xx, DC:x, NombreMunicipio: ....}
+                            _municipios.forEach(
+                                    (muni)=>{
+                                            var _opcEl=document.createElement("option");
+                                             _opcEl.setAttribute("value",muni.codMun)
+                                             _opcEl.appendChild(document.createTextNode(muni.nombreMunicipio));
+                                             dropMun.appendChild(_opcEl);
+                                    }
+                            ); //cierre for-each respuesta ajax municip
+                    } //cierre-if status && readystate
+            });
+            _pet.send();
+
+
+        }
+
+        //----------------------------------------------------------
+        // pongo en rojo los bordes de las cajas de texto con fallos de validacion en server
+        Array.from(document.getElementsByClassName("input-validation-error")).forEach((el) => el.style.borderColor = "red");
+
+
+        var dropMun=document.getElementById("inputLocalidad");
+        document.getElementById("inputProvincia").addEventListener("change",
+                (evt)=>{
+                        //tengo q vaciar el dropdown de localidades...por si hubiera
+                        //alguna provincia ya cargada. Tengo q dejar la opcion por defecto
+                        // "elige localidad..."
+                        Array.from(dropMun.childNodes).forEach(
+                            (nodo)=> {
+                                      if(nodo.value!=0){
+                                           dropMun.removeChild(nodo);
+                                            }
+
+                                      }
+                         );
+
+                        if(evt.target.value!="0"){
+                                dropMun.removeAttribute("disabled");
+                                petAjax(evt.target.value); //peticion ajax con el codpro
+
+                        } //cierre-if target "elige provincia..."
+                } //cierre handler change
+        ); //cierre listener-change-dropProv
+
+
+
 
 
             /*
@@ -289,9 +385,9 @@
 
          </script>
 
+        -->
 
-
-    </body>
+</body>
     </html>
 
 
