@@ -7,7 +7,7 @@ namespace AgapeaNETCORE.Models
 {
     public class Direcciones
     {
-        #region "......propiedades de d la clase....."
+        #region "......propiedades de la clase....."
         public String localidad { get; set; }
         public String provincia { get; set; }
         public String municipio { get; set; }

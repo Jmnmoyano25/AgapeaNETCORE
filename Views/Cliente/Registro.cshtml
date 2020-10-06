@@ -9,12 +9,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@ViewData["Title"] - AgapeaNETCORE</title>
-    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />-->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/registro.css" />
-    <script src="~/js/JavaScript.js"></script>
-    
+    <!--<script src="~/js/JavaScript.js"></script>-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pselect.js@4.0.1/dist/pselect.min.js"></script>
+
 </head>
 <body onload="empezar();">
     <div class="container">
@@ -26,7 +27,7 @@
         </div>
     </div>
     <br />
-    <form method="POST" asp-controller="Cliente" asp-action="Registro">
+    <form method="GET" asp-controller="Cliente" asp-action="Registro">
         <div class="container contenedorPrincipal">
             <div class="row">
                 <div class="col">
@@ -42,7 +43,7 @@
                 </div>
             </div>
             <div class="row ">
-                <div class="col oBien">o bien crea una cuenta en Agapea</div>
+                <div class="col oBien"><p>o bien crea una cuenta en Agapea</p></div>
             </div>
             <div class="row">
                 <div class="col">
@@ -99,11 +100,58 @@
                         <input type="text" class="form-control" name="apellidos" id="apellidos" title="rellena este campo">
                     </div>
                 </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="nombres">Número de NIF</label>
+                        <input type="text" class="form-control" name="nif" id="nif" title="rellena este campo"placeholder="Escribe aquí tu NIF con la letra">
+                    </div>
+                </div>
             </div>
 
-            <small class="form-text text-muted">Agapea S.A. se compromete a garantizar la seguridad de tus datos y a guardarlos en la más estricta confidencialidad.</small>
-            <h1>¿Comó nos conociste?</h1>
-            <small class="form-text text-muted">Queremos saber cómo nos conociste. De todos los sitios donde Agapea está presente, dinos dónde nos has visto.</small>
+            <div class="row">
+                <div class="col">
+                    <h1>Dirección</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="nombres">Dirección</label>
+                        <input type="text" class="form-control" name="direccion" id="direccion" title="rellena este campo" placeholder="Escribe aquí tu direccion (c/, nº, piso, puerta)">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="nombres">Selecciona provincia</label><br />
+                        <select id="ps-prov"></select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="nombres">Selecciona municipio</label><br />
+                        <select id="ps-mun"></select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="nombres">CP</label><br />
+                        <input type="text" class="form-control" name="CP" id="CP" title="rellena este campo" placeholder="Escribe aquí tu Codigo Postal">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="col"><small class="form-text text-muted">Agapea S.A. se compromete a garantizar la seguridad de tus datos y a guardarlos en la más estricta confidencialidad.</small></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h1>¿Comó nos conociste?</h1>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col"><small class="form-text text-muted">Queremos saber cómo nos conociste. De todos los sitios donde Agapea está presente, dinos dónde nos has visto.</small></div>
+            </div>
+
             <div class="custom-control custom-radio">
                 <input type="radio" id="radioCorreos" name="radioConociste" class="custom-control-input">
                 <label class="custom-control-label" for="radioCorreos">Google, Yahoo, Bing...</label>
@@ -148,8 +196,13 @@
                     Así mismo le informamos que los datos recogidos los datos recogidos no se cederán datos a terceros salvo obligación legal y que podrá ejercer los derechos de acceso, rectificación, cancelación u oposición, así como los derechos adicionales que le asisten a través de la dirección de email librosurgentes@agapea.com, así como a través de los medios detallados en la información adicional sobre nuestra política de privacidad que puede consultar en la dirección web https://www.agapea.com/politica-cookies-rgpd.php
                 </span>
             </div>
-            <button type="button" name="botonRegistrar" class="btn btn-outline-primary btn-lg botones botonregistro cajita">Registrate</button>
+            <div class="row">
+                <div class="col">
+                    <button type="button" name="botonRegistrar" class="btn btn-outline-primary btn-lg botones botonregistro cajita">Registrate</button>
+                </div>
+            </div>
         </div>
+    </form>
         <hr />
         <footer>
             <p>
@@ -164,9 +217,15 @@
                 </div>
             </p>
         </footer>
-    </form>
-        <script>
 
+        <script>
+            // Crear el selector pasandole los elementos del dom.
+
+            var prov = document.getElementById('ps-prov');
+            var mun = document.getElementById('ps-mun');
+            new Pselect().create(prov, mun);
+
+            /*
             function CajasTexto(caja) {
                 this.id = caja.id || "";
                 this.valor = caja.value || "";
@@ -225,7 +284,7 @@
                 if (evt.target.value == "") {
                     evt.target.setAttribute("style", "border-color:red")
                 }
-
+                */
 
          </script>
 

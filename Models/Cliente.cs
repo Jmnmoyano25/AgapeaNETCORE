@@ -17,11 +17,14 @@ namespace AgapeaNETCORE.Models
 
         public List<Direcciones> Misdirecciones { get; set; }
 
+        #endregion
+        #region ".....CONSTRUCTORES......"
         public Cliente()
         {
             this.credeUsuario = new credenciales();
         }
-
+        #endregion
+        #region "......METODOS........."
         public class credenciales 
         {
             public String Email { get; set; }
@@ -29,7 +32,7 @@ namespace AgapeaNETCORE.Models
             public String password { get; set; }
             public String hashPassword { get; set; }
         }
-
+        #endregion
 
         /*
          nombre
@@ -61,7 +64,7 @@ namespace AgapeaNETCORE.Models
                                                                 Descripcion
                                                                 Imagen Libro
          **/
-        #endregion
+
 
     }
     public class datosPersonales

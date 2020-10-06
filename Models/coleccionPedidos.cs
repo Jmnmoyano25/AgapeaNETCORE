@@ -9,6 +9,9 @@ namespace AgapeaNETCORE.Models
     {
         #region "....props de la clase....."
         public String fecha_compra { get; set; }
+        public int IdPedido { get; set; }
+        public double totalPedido { get; set; }
+        public String estadoPedido { get; set; }
 
         #endregion
     }
@@ -16,7 +19,7 @@ namespace AgapeaNETCORE.Models
     /* coleccion de pedidos fecha compra
                                  id-pedido
                                  total
-                                 estado-pedido ISBN10
+                                 estado-pedido                   ISBN10
                                  colección de libro.........>    ISBN13
                                                                  Titulo
                                                                  Autor

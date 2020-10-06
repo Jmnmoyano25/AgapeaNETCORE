@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using AgapeaNETCORE.Models;
 using Microsoft.AspNetCore.Mvc;
 
+
+
 namespace AgapeaNETCORE.Controllers
 {
     public class ClienteController : Controller
@@ -18,11 +20,18 @@ namespace AgapeaNETCORE.Controllers
 
 
         #region  "1.......METODOS QUE DEVUELVEN VISTAS (PUBLICOS)..........."
+
         public IActionResult Login()
         {
             return View();
         }
-        [HttpGet]//se 
+        //se 
+        [HttpGet]
+        public IActionResult Registro()
+        {
+            return View();
+        }
+        [HttpPost]
         public IActionResult Registro(Cliente nuevoCliente)
         {//poner un punto de parada para ver como evoluciona la pagina
             /*
@@ -34,14 +43,14 @@ namespace AgapeaNETCORE.Controllers
 
             */
             return View();
-
+            
         }
-        //[HttpPost]
+
         #endregion
         #region  "2.......METODOS PRIVADOS..........."
 
         #endregion
         #endregion
-    }
+    } 
     
 }
