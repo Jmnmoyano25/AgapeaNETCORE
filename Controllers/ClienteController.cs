@@ -35,7 +35,7 @@ namespace AgapeaNETCORE.Controllers
 
         
         [HttpPost]
-        public IActionResult Registro(Cliente nuevoCliente)
+        public IActionResult Registro(Cliente nuevoCliente, String repassword, Boolean condicionesUso)
         {//poner un punto de parada para ver como evoluciona la pagina
             /*
             logica para:
@@ -46,6 +46,14 @@ namespace AgapeaNETCORE.Controllers
 
             */
             //1º paso, validar objeto cliente, con el MODELSTATE
+            if(nuevoCliente.credeUsuario.password != repassword)//lo utilizamos para validar las contraseñas
+            {
+                ModelState.AddModelError("", "Las contraseñas introducidas no coinciden");
+            }
+            if (condicionesUso == false)
+            {
+                ModelState.AddModelError("", "Las condiciones han de aceptarse si o si");
+            }
             if (ModelState.IsValid)
             {
                 //estado de validación de todo el objeto OK, pasaria al 2º paso....

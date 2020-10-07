@@ -34,6 +34,11 @@
         </div>
     </div>
     <br />
+    <div class="row">
+        <div class="col">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </div>
+    </div>
     <form method="POST" asp-controller="Cliente" asp-action="Registro">
         <div class="container contenedorPrincipal">
             <div class="row">
@@ -82,7 +87,12 @@
                 <div class="col">
                     <div class="form-group">
                         <label class="nombres">Repite tu contraseña</label>
-                        <input type="password" class="form-control" id="pass2" placeholder="Repite aquí tu contraseña" title="rellena este campo">
+                        <input type="password" 
+                               class="form-control"
+                               id="pass2"
+                               placeholder="Repite aquí tu contraseña"
+                               title="rellena este campo"
+                               name="repassword">
 
                     </div>
                 </div>
@@ -210,7 +220,11 @@
                 <label class="custom-control-label" for="deseoInfo">Deseo recibir información sobre libros, novedades y eventos de Agapea.com o sus librerías.</label>
             </div>
             <div class="custom-control custom-checkbox cajita">
-                <input type="checkbox" class="custom-control-input" id="aceptoCondiciones">
+                <input type="checkbox"
+                       class="custom-control-input"
+                       id="aceptoCondiciones"
+                       name="condicionesUso"
+                       value="false">
                 <label class="custom-control-label" for="aceptoCondiciones">Acepto la <a>Condiciones de uso</a>, y nuestra <a>política de Cookies</a></label>
             </div>
             <div>
@@ -260,6 +274,15 @@
                 caja.setAttribute("style", "border-color:green");
                         }
                     });
+
+        var check = document.getElementById("aceptoCondiciones")
+
+        check.addEventListener("change", (ev) => {
+            var _chequeado = ev.target.value;
+            console.log("ahora hecho")
+            _chequeado == "true" ? ev.target.value = "false" : ev.target.value = "true";
+            console.log("es ahora" + ev.target.value);
+        });
 
     </script>
     <!--
