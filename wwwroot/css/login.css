@@ -1,0 +1,130 @@
+﻿html {
+    font-family: Verdana, Geneva, sans-serif;
+}
+h1 {
+    font-size: 25px;
+}
+h2 {
+    padding: 15px;
+}
+.nombres {
+    font-weight: bold;
+}
+.oBien {
+    color: grey;
+    text-align: center;
+    padding: 30px;
+}
+ul {
+    list-style: none outside none;
+}
+li{
+    float: left;
+}
+.textoContGran {
+    margin: 10px;
+    padding: 20px;
+    display: inline-block;
+}
+.principal {
+    display: inline-block;
+
+}
+.logo {
+    float: left;
+    margin: 2px 25px 10px 5px;
+    background-position: -208px -36px;
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+}
+.botonF {
+    width: 80%;
+    padding: 10px;
+    margin: 15px;
+    background-color: rgb(136, 165, 224);
+    color: white;
+    border: 2px solid rgb(136, 165, 224);
+}
+
+    .botonF:hover {
+        background-color: white;
+        color: rgb(136, 165, 224);
+        border: 2px solid rgb(136, 165, 224);
+    }
+
+.botonG {
+    width: 80%;
+    padding: 10px;
+    margin: 15px;
+    background-color: rgb(218, 100, 56);
+    color: white;
+    border: 2px solid rgb(218, 100, 56);
+}
+
+    .botonG:hover {
+        background-color: white;
+        color: rgb(218, 100, 56);
+        border: 2px solid rgb(218, 100, 56);
+    }
+
+.botonregistro {
+    background-color: rgb(20, 40, 200);
+    color: white;
+    border: 2px solid rgb(20, 40, 200);
+}
+    .botonregistro:hover {
+        background-color: white;
+        color: rgb(20, 40, 200);
+        border: 2px solid rgb(20, 40, 200);
+    }
+.contenedorPrincipal {
+    position: relative;
+    width: 100%;
+    box-shadow: rgb(204, 204, 204) 0px 0px 3px 3px;
+    border-radius: 10px;
+    border-style: groove;
+    border-color: #d4d4d4;
+    border-width: 1px;
+}
+
+.contenedorPeq {
+    width: 30%;
+    display: block;
+    float: left;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.contenedorGran {
+    width: 65%;
+    display: block;
+    float: left;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.botonregistro {
+    background-color: rgb(20, 40, 200);
+    color: white;
+    border: 2px solid rgb(20, 40, 200);
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#face {
+    font-size: 40px;
+    padding-right: 50px;
+    font-weight: bold;
+}
+
+#gog {
+    font-size: 40px;
+    padding-right: 50px;
+}
+.cajita {
+    margin: 10px;
+}
+
+

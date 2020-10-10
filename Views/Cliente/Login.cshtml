@@ -1,0 +1,160 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewData["Title"] - AgapeaNETCORE</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/login.css"/>
+    <!--<script src="~/js/JavaScript.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="https://www.agapea.com/">Agapea</a></li>
+                        <li class="breadcrumb-item active">ACCESO ZONA DE USUARIOS</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="col">
+                <img src="~/images/Logo.png" />
+                <h1>Acceso a agapea.com</h1>
+                <div>
+                    <span>Para poder disfrutar de algunos de nuestros servicios, debes estar registrado. Registrarse en agapea.com es rápido, fácil y <span class=" style: font-weight-bold">¡GRATIS!</span></span>
+                </div>
+            </div>
+            <br />
+        </div>
+    </header>
+    <br />
+
+    <div class="container justify-content-center">
+        <div class="row justify-content-center">
+            <div class="row-fluid contenedorPeq contenedorPrincipal">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <h2>Registrate con ...</h2>
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-6 col-sm-12 col-md-6 text-center">
+                            <button type="button" class="btn btn-primary botonF" title="logueate con facebook"><i id="face" class="fa fa-facebook-f">f</i><span style="transition-duration: 0.6s;">facebook</span></button>
+                        </div>
+                        <div class="col-6 col-sm-12 col-md-6 text-center">
+                            <button type="button" class="btn btn-primary botonG" title="logueate con google"><i id="gog" class="fa fa-google-plus">g+</i><span style="transition-duration: 0.6s;">google</span></button>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col oBien"><p>o bien crea una cuenta en Agapea</p></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h1>Regístrate con Agapea</h1>
+                        </div>
+                    </div>
+                </div>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="nombres">Correo electrónico</label>
+                                <input type="email" class="form-control" id="email" placeholder="Escribe aquí tu email" title="rellena este campo" onchange="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="nombres">Contraseña</label>
+                                <input type="password" class="form-control" id="pass" placeholder="Escribe aquí tu contraseña" title="rellena este campo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" name="botonLogin" class="btn btn-outline-primary btn-lg botonregistro">Identifícate</button>
+                        </div>
+                    </div>
+                    <div class="row cajita">
+                        <div classs="col">
+                            <spam>Al identificarte, aceptas nuestras </spam><a rel="nofollow" title="Condiciones de uso de Agapea" alt="Condiciones de uso de Agapea" href="https://www.google.es/">Condiciones de uso,  y nuestras Condiciones de Cookies</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+
+            <div class="row-fluid contenedorGran contenedorPrincipal">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <h2>Registrate con ...</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <span class="textoContGran">Regístrate en <a href="https://localhost:44392/Cliente/Registro" title="Registrarme en Agapea.com">Agapea.com</a> y disfruta de todos estos beneficios y comodidades:</span>
+                        </div>
+                        <div class="row" style="display: inline-block">
+                            <div class="col">
+                                <ul>
+                                    <li><img class="logo" alt="Logo Agapea" title="Logito" src="~/images/logito.png" />Ahorro de tiempo y mayor facilidad en el proceso de compra (Tus datos se almacenan y aparecen automáticamente en los campos del formulario para próximas compras).</li>
+                                    <li><img class="logo" alt="Logo Agapea" title="Logito" src="~/images/logito.png" />Acceso en tiempo real a toda la información relativa a tus compras.</li>
+                                    <li><img class="logo" alt="Logo Agapea" title="Logito" src="~/images/logito.png" />Acceso en tiempo real al estado de los envíos de tus pedidos.</li>
+                                    <li><img class="logo" alt="Logo Agapea" title="Logito" src="~/images/logito.png" />Acceso a contenidos exclusivos y personalizados para usuarios registrados (listas de libros recomendados para cada usuario, dossiers, newsletter, etc.).</li>
+                                    <li><img class="logo" alt="Logo Agapea" title="Logito" src="~/images/logito.png" />Acceso a ofertas, promociones, descuentos especiales y concursos, solo para usuarios registrados.</li>
+                                    <li><img class="logo" alt="Logo Agapea" title="Logito" src="~/images/logito.png" />Acceso a la programación cultural de las librerías Agapea (talleres, actividades infantiles, cuentacuentos, clubs de lectura, etc.)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button type="button" name="botonRegistrar" class="btn btn-outline-primary btn-lg botonregistro">Registrate</button><!--te debe de dirigir a registro-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div class="container">
+            <hr />
+            <p>
+                <br />
+                <img alt="Premio Empresa Responsable con la Infancia 2017" title="Premio Empresa Responsable con la Infancia 2017" style="float:right; width: 3%;" src="~/images/Premio.jpg">
+                <div style="text-align: center">
+                    <a rel="nofollow" id="linkNotaLegal" class="" href="www.google.es">Aviso Legal</a>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a rel="nofollow" id="linkNotaLegal" class="" href="www.google.es">Condiciones de contratación</a>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a rel="nofollow" id="linkNotaLegal" class="" href="www.google.es">Política de Privacidad y Cookies</a>
+                </div>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
+
+
