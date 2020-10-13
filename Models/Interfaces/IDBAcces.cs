@@ -8,8 +8,8 @@ namespace AgapeaNETCORE.Models.Interfaces
     public interface IDBAcces
     {
         //Es mejor poner que te devuelva el numero de filas
-        Boolean ResgistrarCliente(Cliente nuewcliente);
+        Boolean ResgistrarCliente(Cliente nuevoCliente);
         Cliente DevolverCliente(String emailCliente);
-        Boolean comprobarCredenciales(String loginUsuario, String password);
+        Boolean ComprobarCredenciales(String loginUsuario, String password);
     }
 }

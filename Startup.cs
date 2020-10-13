@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,6 +31,20 @@ namespace AgapeaNETCORE
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            /*
+             ------------------- configuración de inyeccion de dependencias o servicios ---------------------
+                se especifica que objetos crear cuanod unas clases piden objetos que implementan determinadas
+                interfaces      ej: si un controlador me pide un objeto IDBAcces ==> objeto SQLServerDBAcces
+            */
+
+            // ------- resgistramos restricciones sobre segmentos en patrones de enrutamiento ---------
+            /*
+             * ------ME DA UN FALLO Y NO SE PORQUE--------
+            services.Configure<RouteOptions>(
+                options => options.ConstraintMap.Add("tiposext", typeof(TiposExtensionRouteConstraint))
+                );
+                //----------------------------------------------------------------------------------------
+            */
             services.AddControllersWithViews();
         }
 

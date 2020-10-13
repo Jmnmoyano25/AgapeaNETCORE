@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AgapeaNETCORE.Models;
+using AgapeaNETCORE.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -13,11 +14,15 @@ namespace AgapeaNETCORE.Controllers
     {
 
         #region  "......PROPIEDADES DE CLASE..........."
-
+        private IDBAcces _accesoBD;
         #endregion
         #region  "......METODOS DE CLASE..........."
 
-
+            //-----inyectamos un objeto al constructor
+        public ClienteController(IDBAcces accesoBD)
+        {
+            this._accesoBD = accesoBD;
+        }
 
         #region  "1.......METODOS QUE DEVUELVEN VISTAS (PUBLICOS)..........."
 
@@ -57,6 +62,35 @@ namespace AgapeaNETCORE.Controllers
             if (ModelState.IsValid)
             {
                 //estado de validación de todo el objeto OK, pasaria al 2º paso....
+
+                //
+                if (this._accesoBD.ResgistrarCliente(nuevoCliente))
+                {
+                    //insertar en BD ok, pasaria al 3ºº paso...envio de email al cliente.....
+                    //4º paso redirección
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Error en el proceso de datos de servidor, intentelo mas tarde....");
+                    return View(nuevoCliente);
+                }
+
+
+                /* NO UTILIZAMOS ESTE METODO POR QUE LA BASE DE DATOS ESTA ESPECIFICADA, LO HAREMOS A TRAVES DE INTERFACES
+                //objeto creado de la clase SQLServerDBAAcces para utilizar sus metodos
+                SQLServerDBAAcces _accesoBD = new SQLServerDBAAcces();
+                if (_accesoBD.InsertarCliente(nuevoCliente))
+                {
+                    //insertar en BD ok, pasaria al 3ºº paso...envio de email al cliente.....
+                    //4º paso redirección
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Error en el proceso de datos de servidor, intentelo mas tarde....");
+                    return View(nuevoCliente);
+                }*/
+
                 return RedirectToAction("Index", "Home");
             }
             else
