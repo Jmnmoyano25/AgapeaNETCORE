@@ -153,6 +153,14 @@
                         <label class="nombres">Selecciona provincia</label><br />
                         <select id="ps-prov" asp-for="@Model.Misdirecciones[_numeroDirecciones-1].provincia">
                             <option value="0" selected>Elige una provincia</option>
+                            <!--
+                                recojo del viewdata la lista de provincias y por cada provincia creo un elemento
+                                HTML de tipo option
+                             -->
+                            @foreach (Provincias unaprov in (ViewData["listaProvincias"] as List<Provincias>))
+                            {
+                                <option value="@unaprov.CodPro">@unaprov.NombreProvincia</option>
+                            }
                         </select>
 
                     </div>

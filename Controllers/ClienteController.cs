@@ -16,25 +16,49 @@ namespace AgapeaNETCORE.Controllers
         #region  "......PROPIEDADES DE CLASE..........."
         private IDBAcces _accesoBD;
         #endregion
+        //ctor + tab pone constructor
+        //-----inyectamos un objeto al constructor
+        public ClienteController(IDBAcces objetoAccesoBD)
+        {
+            this._accesoBD = objetoAccesoBD;
+
+        }
+
         #region  "......METODOS DE CLASE..........."
 
-            //-----inyectamos un objeto al constructor
-        public ClienteController(IDBAcces accesoBD)
-        {
-            this._accesoBD = accesoBD;
-        }
+
 
         #region  "1.......METODOS QUE DEVUELVEN VISTAS (PUBLICOS)..........."
 
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Login(Cliente newcliente)
+        {
+
+            if (ModelState.IsValid)
+                return View();
+            else
+                return View(newcliente);
+        }
+        
+
+
         //Primera conexion antes mientras metemos los datos, pero antes de dar al submit
         [HttpGet]
         public IActionResult Registro()
         {
+            //....necesito la lista de provincias para cargarlas en la vista.....
+            List<Provincias> listaProvs = this._accesoBD.DevolverProvincias();
+
+            //pasamos la lista de provincias a la vista atraves de la colección ViewData
+            //es un a colección clave-valor que usan los controladores para mandar datos a las vistas
+            ViewData["listaProvincias"] = listaProvs;
+
             return View(new Cliente());
         }
 
@@ -91,7 +115,7 @@ namespace AgapeaNETCORE.Controllers
                     return View(nuevoCliente);
                 }*/
 
-                return RedirectToAction("Index", "Home");
+              //  return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -100,10 +124,12 @@ namespace AgapeaNETCORE.Controllers
         }
 
         #endregion
+
+
         #region  "2.......METODOS PRIVADOS..........."
 
         #endregion
         #endregion
-    } 
-    
+    }
+
 }
