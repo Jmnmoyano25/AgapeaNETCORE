@@ -14,16 +14,22 @@ namespace AgapeaNETCORE.Controllers
     {
 
         #region  "......PROPIEDADES DE CLASE..........."
-        private IDBAcces _accesoBD;
+        private IDBAccess _accesoBD;
         #endregion
         //ctor + tab pone constructor
         //-----inyectamos un objeto al constructor
-        public ClienteController(IDBAcces objetoAccesoBD)
+        public ClienteController(IDBAccess objetoAccesoBD)
         {
             this._accesoBD = objetoAccesoBD;
 
         }
+        
 
+
+
+
+
+        
         #region  "......METODOS DE CLASE..........."
 
 
@@ -53,7 +59,7 @@ namespace AgapeaNETCORE.Controllers
         public IActionResult Registro()
         {
             //....necesito la lista de provincias para cargarlas en la vista.....
-            List<Provincias> listaProvs = this._accesoBD.DevolverProvincias();
+            List<Provincia> listaProvs = this._accesoBD.DevolverProvincias();
 
             //pasamos la lista de provincias a la vista atraves de la colección ViewData
             //es un a colección clave-valor que usan los controladores para mandar datos a las vistas
@@ -92,7 +98,7 @@ namespace AgapeaNETCORE.Controllers
                 {
                     //insertar en BD ok, pasaria al 3ºº paso...envio de email al cliente.....
                     //4º paso redirección
-                    return RedirectToAction("Index", "Home");
+                   // return RedirectToAction("Index", "Home");
                 }
                 else
                 {
@@ -115,7 +121,7 @@ namespace AgapeaNETCORE.Controllers
                     return View(nuevoCliente);
                 }*/
 
-              //  return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -130,6 +136,7 @@ namespace AgapeaNETCORE.Controllers
 
         #endregion
         #endregion
+            
     }
 
 }

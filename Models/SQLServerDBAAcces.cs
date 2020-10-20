@@ -10,17 +10,17 @@ using AgapeaNETCORE.Models.Interfaces;
 
 namespace AgapeaNETCORE.Models
 {
-    public class SQLServerDBAAcces : IDBAcces
+    public class SQLServerDBAAcces : IDBAccess
     {
         //CLASES AÑADIDAS EL 20/10/2020
-       
+
 
         // ----------clase con metodos para acceso a tablas Clientes,Pedidos,Libros.... sobre SQLSERVER ------
 
 
 
-        #region "...propiedades de clase..."
-            private String _cadenaConexion = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AgapeaDBPablo;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        #region "...propiedades de clase..."   
+        private String _cadenaConexion =      @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AgapeaDBPablo;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         //clase para entablar la conexion con la BD sql    
         public SqlConnection conexionSQLserver;
 
@@ -35,7 +35,7 @@ namespace AgapeaNETCORE.Models
         #region "...metodos de clase..."
 
 
-        public List<Provincias> DevolverProvincias() {
+        public List<Provincia> DevolverProvincias() {
 
             //consulta a la BD de SqlServer tabla provincias....
             // - abro conexión con objeto SqlConnection a la BD del servidor
@@ -54,8 +54,12 @@ namespace AgapeaNETCORE.Models
             //para SELECTS insert, input, etc (no devuelven filas)  metodo .ExecuteNonQuery();
             //para SELECTS que devuelven cursores (devuelven filas) metodo .ExecuteReader();
 
-            List<Provincias> listaProvs =  new List<Provincias>()  {new Provincias { CodPro = 28, NombreProvincia = "Madrid"  },
-                                                                    new Provincias { CodPro = 41, NombreProvincia = "Sevilla"  }};
+            List<Provincia> listaProvs = new List<Provincia>(); 
+
+            /* Esto no se hace así, es solo para probar....
+            {new Provincias { CodPro = 28, NombreProvincia = "Madrid"  },
+             new Provincias { CodPro = 41, NombreProvincia = "Sevilla"  }};
+            */
             //me recorro este cursor, y por cada fila del vursor me creo un objeto de tipo Provincia y lo añado a la lista:listaProvs
             SqlDataReader _reusltadosSelect = _selectProvincias.ExecuteReader();
 
@@ -66,7 +70,15 @@ namespace AgapeaNETCORE.Models
         }
 
 
-                 #region "...metodos heredados de la interface......"
+
+        public List<Municipio> DevolverMunicipios(int codpro)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+        #region "...metodos heredados de la interface......"
         public bool ComprobarCredenciales(string loginUsuario, string password)
         {
             throw new NotImplementedException();
@@ -87,7 +99,8 @@ namespace AgapeaNETCORE.Models
             return true;
 
         }
-                       #endregion
+
+        #endregion
         #endregion
     }
 }

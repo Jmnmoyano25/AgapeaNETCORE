@@ -157,7 +157,7 @@
                                 recojo del viewdata la lista de provincias y por cada provincia creo un elemento
                                 HTML de tipo option
                              -->
-                            @foreach (Provincias unaprov in (ViewData["listaProvincias"] as List<Provincias>))
+                            @foreach (Provincia unaprov in (ViewData["listaProvincias"] as List<Provincia>))
                             {
                                 <option value="@unaprov.CodPro">@unaprov.NombreProvincia</option>
                             }

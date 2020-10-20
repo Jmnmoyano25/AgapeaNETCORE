@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AgapeaNETCORE.Models
 {
-    public class Provincias
+    public class Provincia
     {
         #region "....propiedades de la clase...."
         public int CodPro { get; set; }
