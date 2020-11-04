@@ -9,7 +9,7 @@ namespace AgapeaNETCORE.Models
     {
         #region "...propiedades de la clase......."
              public int CodPro { get; set; }
-             public int ConMun { get; set; }
+             public int CodMun { get; set; }
              public String NombreMunicipio { get; set; }
         #endregion
     }

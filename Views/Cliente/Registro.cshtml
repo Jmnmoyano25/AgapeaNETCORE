@@ -150,13 +150,13 @@
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label class="nombres">Selecciona provincia</label><br />
-                        <select id="ps-prov" asp-for="@Model.Misdirecciones[_numeroDirecciones-1].provincia">
+                        <label class="nombres" for=" inputProvincia">Selecciona provincia</label><br />
+                        <select id="inputProvincia" class="form-control" asp-for="@Model.Misdirecciones[_numeroDirecciones-1].provincia">
                             <option value="0" selected>Elige una provincia</option>
                             <!--
-                                recojo del viewdata la lista de provincias y por cada provincia creo un elemento
-                                HTML de tipo option
-                             -->
+            recojo del viewdata la lista de provincias y por cada provincia creo un elemento
+            HTML de tipo option
+         -->
                             @foreach (Provincia unaprov in (ViewData["listaProvincias"] as List<Provincia>))
                             {
                                 <option value="@unaprov.CodPro">@unaprov.NombreProvincia</option>
@@ -167,8 +167,8 @@
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label class="nombres">Selecciona municipio</label><br />
-                        <select id="ps-mun" asp-for="@Model.Misdirecciones[_numeroDirecciones-1].municipio">
+                        <label class="nombres" for="inputMunicipio">Selecciona municipio</label><br />
+                        <select id="inputMunicipio" class="form-control" asp-for="@Model.Misdirecciones[_numeroDirecciones-1].municipio">
                             <option value="0" disabled>Elige un municipio</option>
                         </select>
                     </div>

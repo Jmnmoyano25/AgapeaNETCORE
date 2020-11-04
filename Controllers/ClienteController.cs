@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using AgapeaNETCORE.Models;
 using AgapeaNETCORE.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-
-
+using System.Text.Json; //<------namespace  
+using Microsoft.AspNetCore.Http;
 
 namespace AgapeaNETCORE.Controllers
 {
@@ -15,33 +15,65 @@ namespace AgapeaNETCORE.Controllers
 
         #region  "......PROPIEDADES DE CLASE..........."
         private IDBAccess _accesoBD;
+        private IClienteEnvioMail _clienteMail;
         #endregion
         //ctor + tab pone constructor
         //-----inyectamos un objeto al constructor
-        public ClienteController(IDBAccess objetoAccesoBD)
+        public ClienteController(IDBAccess objetoAccesoBD, IClienteEnvioMail clienteCorreo)
         {
             this._accesoBD = objetoAccesoBD;
+            this._clienteMail = clienteCorreo;
 
         }
-        
 
 
 
 
 
-        
+
+
         #region  "......METODOS DE CLASE..........."
 
 
 
         #region  "1.......METODOS QUE DEVUELVEN VISTAS (PUBLICOS)..........."
 
+        //..................... metodos para generar la vista LOGIN USUARIO .......................
         [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
 
+        [HttpPost]
+        //......1º acceder a la BD y si esta todo OK, es decir, que el cliente existe
+        //......2º crearemos una VARIABLE 
+        public IActionResult Login(Cliente.credenciales creds)
+        {
+            if (ModelState.IsValid)
+            {
+                Cliente clienteLogin = this._accesoBD.ComprobarCredenciales(creds.Email, creds.password);
+                if (clienteLogin != null) //no se puede hacer asi ahora por que te devuelve un cliente
+                {
+                    HttpContext.Session.SetString("sesion-id", JsonSerializer.Serialize(clienteLogin));
+                    //2º Crearme una Variable de sesion y redirigir al cliente a la pagina de inicio
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Email o Password invalidas");
+                    return View(creds);
+
+                }
+            }
+            else
+            {
+                return View(creds);
+            }
+            
+            
+        }
+        //.....................metodos para vista REGISTRO USUARIO .......................
         [HttpPost]
         public IActionResult Login(Cliente newcliente)
         {
@@ -96,9 +128,18 @@ namespace AgapeaNETCORE.Controllers
                 //
                 if (this._accesoBD.ResgistrarCliente(nuevoCliente))
                 {
-                    //insertar en BD ok, pasaria al 3ºº paso...envio de email al cliente.....
+                    //insertar en BD ok, pasaria al 3º paso...envio de email al cliente.....
                     //4º paso redirección
-                   // return RedirectToAction("Index", "Home");
+                    // return RedirectToAction("Index", "Home");
+
+                    String _bodyEmail = "<p>Estimado amigo: " + nuevoCliente.Nombre + "</p>" +
+                                        "<p>Para completar su registro en Agapea.com es necesario que confirmes el correo electronico</p>"+
+                                        "<br>"+
+                                        "<a href='https://localhost:44392/Cliente/ActivarCuenta/" + nuevoCliente.credeUsuario.Email +"' >Activar cuenta</a>"+
+                                        "<p>Muchas Gracias</p><br><br><p>Atentamente Agapea.com</p>";
+
+
+                    this._clienteMail.EnviarEmail(nuevoCliente.credeUsuario.Email, "Bienvenido a Agapea", _bodyEmail);
                 }
                 else
                 {
@@ -125,10 +166,23 @@ namespace AgapeaNETCORE.Controllers
             }
             else
             {
+                ModelState.AddModelError("", "Error en el proceso de datos de servidor, intentelo mas tarde....");
                 return View(nuevoCliente);
             }                        
         }
 
+        //...................metodos para ACTIVAR CUENTA.........................
+        [HttpGet]
+        public void ActivarCuenta(String id)
+        {
+            //en el parametro id va el "email" de la cuenta del usuario a activar.....
+            //llamar al cliente de acceso a BD para hacer un UPDATE en la tabla
+            //"dbo.Clientes" y poner la columna CuentaActivada a "true"
+
+
+            //............HACER ESTO EN CASA....................
+
+        }
         #endregion
 
 

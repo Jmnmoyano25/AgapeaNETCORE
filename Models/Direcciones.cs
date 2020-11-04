@@ -9,9 +9,14 @@ namespace AgapeaNETCORE.Models
     {
         #region "......propiedades de la clase....."
         public String calle { get; set; }
-        public String provincia { get; set; }
-        public String municipio { get; set; }
+        public Provincia provincia { get; set; }//originalmente era un String
+        public Municipio municipio { get; set; }//originalmente era un String
         public int cp { get; set; }
         #endregion
+        public Direcciones()
+        {
+            this.provincia = new Provincia();
+            this.municipio = new Municipio();
+        }
     }
 }

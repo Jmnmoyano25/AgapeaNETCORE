@@ -13,12 +13,13 @@ namespace AgapeaNETCORE.Models.Interfaces
 
         List<Provincia> DevolverProvincias();
 
+
         List<Municipio> DevolverMunicipios(int codpro);
 
 
 
         Cliente DevolverCliente(String emailCliente);
-        Boolean ComprobarCredenciales(String loginUsuario, String password);
+        Cliente ComprobarCredenciales(String loginUsuario, String password);
 
         
     }

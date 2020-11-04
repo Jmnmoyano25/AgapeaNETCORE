@@ -16,7 +16,7 @@ namespace AgapeaNETCORE.Models
         public String Apellidos { get; set; }
 
         [Required(ErrorMessage ="NIF obligatorio")]
-        [RegularExpression("^[0-9]{8}-[A-Za-z]$", ErrorMessage ="formato NIF incorrecto: 12345678-A")]
+        [RegularExpression("^[0-9]{8}[A-Za-z]$", ErrorMessage ="formato NIF incorrecto: 12345678A")]
         public String nif { get; set; }
 
         [Required(ErrorMessage = "Telefono de contacto es obligatorio por si van mal las cosas")]
@@ -42,8 +42,11 @@ namespace AgapeaNETCORE.Models
              * Crear un atributo de validación sobre la propiedad Email para comprobar si existe o no ese email, en la BD,
              * si ya existiera devilver mensaje de error y hacer modelo invalido....
              */
+            [Required(ErrorMessage ="el Email es obligatorio")]
+            [RegularExpression(@"^.*@.*\.(com|ed|es)$",ErrorMessage ="formato erroneo")]
             public String Email { get; set; }
             public String login { get; set; }
+            [Required(ErrorMessage ="El password es obligatorio")]
             public String password { get; set; }
             public String hashPassword { get; set; }
         }

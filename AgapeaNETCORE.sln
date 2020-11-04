@@ -5,26 +5,7 @@ VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgapeaNETCORE", "AgapeaNETCORE.csproj", "{D8037E07-DEAB-40BA-8B76-95EC97B4E8F0}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "EJERCICIO EVALUABLE HTML5 2END TRIMESTRE", "G:\daw 1\LENGUAJE DE MARCAS\HTML5-CSS3\04-PROYECTOS\EJERCICIO EVALUABLE HTML5 2END TRIMESTRE\", "{906DB2E4-F7E8-4E1D-B798-E894013EA038}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_50304"
-		Debug.AspNetCompiler.PhysicalPath = "G:\daw 1\LENGUAJE DE MARCAS\HTML5-CSS3\04-PROYECTOS\EJERCICIO EVALUABLE HTML5 2END TRIMESTRE\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50304\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_50304"
-		Release.AspNetCompiler.PhysicalPath = "G:\daw 1\LENGUAJE DE MARCAS\HTML5-CSS3\04-PROYECTOS\EJERCICIO EVALUABLE HTML5 2END TRIMESTRE\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50304\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "50304"
-		SlnRelativePath = "G:\daw 1\LENGUAJE DE MARCAS\HTML5-CSS3\04-PROYECTOS\EJERCICIO EVALUABLE HTML5 2END TRIMESTRE\"
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pruebaClase", "..\..\..\Google Drive\2 DAW PC CASA\ASP.NET\pruebaClase\pruebaClase.csproj", "{392D6E54-0247-4B26-8E1F-B7BD8B58835F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,10 +17,10 @@ Global
 		{D8037E07-DEAB-40BA-8B76-95EC97B4E8F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8037E07-DEAB-40BA-8B76-95EC97B4E8F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8037E07-DEAB-40BA-8B76-95EC97B4E8F0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{906DB2E4-F7E8-4E1D-B798-E894013EA038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{906DB2E4-F7E8-4E1D-B798-E894013EA038}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{906DB2E4-F7E8-4E1D-B798-E894013EA038}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{906DB2E4-F7E8-4E1D-B798-E894013EA038}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{392D6E54-0247-4B26-8E1F-B7BD8B58835F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{392D6E54-0247-4B26-8E1F-B7BD8B58835F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{392D6E54-0247-4B26-8E1F-B7BD8B58835F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{392D6E54-0247-4B26-8E1F-B7BD8B58835F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

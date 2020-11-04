@@ -1,4 +1,4 @@
-﻿
+﻿@model AgapeaNETCORE.Models.Cliente
 @{
     Layout = null;
 }
@@ -68,12 +68,17 @@
                         </div>
                     </div>
                 </div>
-                <form>
+                <form method="post">
                     <div class="form-row">
                         <div class="col">
                             <div class="form-group">
                                 <label class="nombres">Correo electrónico</label>
-                                <input type="email" class="form-control" id="email" placeholder="Escribe aquí tu email" title="rellena este campo" onchange="">
+                                <input type="email"
+                                       class="form-control"
+                                       id="email" asp-for="@Model.credeUsuario.Email"
+                                       laceholder="Escribe aquí tu email"
+                                       title="rellena este campo" 
+                                       onchange="">
                             </div>
                         </div>
                     </div>
@@ -81,7 +86,10 @@
                         <div class="col">
                             <div class="form-group">
                                 <label class="nombres">Contraseña</label>
-                                <input type="password" class="form-control" id="pass" placeholder="Escribe aquí tu contraseña" title="rellena este campo">
+                                <input type="password" 
+                                       class="form-control" id="pass" 
+                                       placeholder="Escribe aquí tu contraseña" 
+                                       title="rellena este campo">
                             </div>
                         </div>
                     </div>
@@ -154,6 +162,13 @@
             </p>
         </div>
     </footer>
+    <script>
+        var enlaceLogin = document.getElementById("enlaceLogin");
+        enlaceLogin.addEventListener("click", (evt) => {
+            document.forms
+        }
+            )
+    </script>
 </body>
 </html>
 

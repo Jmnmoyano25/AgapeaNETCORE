@@ -49,6 +49,8 @@ namespace AgapeaNETCORE.Controllers
              * codigo javascript en dropdown municipios
              * 
              * */
+
+            return this._accesoDB.DevolverMunicipios(codpro);
         }
 
         #endregion
