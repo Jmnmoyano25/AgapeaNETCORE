@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AgapeaNETCORE.Models;
-using AgapeaNETCORE.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json; //<------namespace  
+
+using AgapeaNETCORE.Models.Interfaces;
+
 using Microsoft.AspNetCore.Http;
+using System.Text.Json;  //<-----------namespace para serializar/deserializar JSON<-->objects  
+
 
 namespace AgapeaNETCORE.Controllers
 {
@@ -17,6 +20,7 @@ namespace AgapeaNETCORE.Controllers
         private IDBAccess _accesoBD;
         private IClienteEnvioMail _clienteMail;
         #endregion
+
         //ctor + tab pone constructor
         //-----inyectamos un objeto al constructor
         public ClienteController(IDBAccess objetoAccesoBD, IClienteEnvioMail clienteCorreo)
